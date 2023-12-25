@@ -455,39 +455,39 @@ void initRender(OpenGL *ogl)
 	 // создающимис€ во врем€ компил€ции, € переименовал модели в *.obj_m
 
 	glActiveTexture(GL_TEXTURE0);
-	loadModel("models\\morph.obj", &objModel);
+	loadModel("models\\morph.obj_m", &objModel);
 	morphTex.loadTextureFromFile("textures//__morphling_base_color.bmp");
 	morphTex.bindTexture();
 
-	loadModel("models\\tiny.obj", &tiny);
+	loadModel("models\\tiny.obj_m", &tiny);
 	tinyTex.loadTextureFromFile("textures//__tiny_01_base_color.bmp");
 	tinyTex.bindTexture();
 
-	loadModel("models\\aa.obj", &aa);
+	loadModel("models\\aa.obj_m", &aa);
 	aaTex.loadTextureFromFile("textures//__ancient_apparition_base_color.bmp");
 	aaTex.bindTexture();
 
-	loadModel("models\\enigma.obj", &enigma);
+	loadModel("models\\enigma.obj_m", &enigma);
 	enigmaTex.loadTextureFromFile("textures//__enigma_base_color.bmp");
 	enigmaTex.bindTexture();
 
-	loadModel("models\\platform.obj", &platform);
+	loadModel("models\\platform.obj_m", &platform);
 	platformTex.loadTextureFromFile("textures//1660928151_35-celes-club-p-tekstura-gruntovoi-dorogi-krasivo-43.bmp");
 	platformTex.bindTexture();
 
-	loadModel("models\\eidolon.obj", &eidolon);
+	loadModel("models\\eidolon.obj_m", &eidolon);
 	eidolonTex.loadTextureFromFile("textures//eidelon_eidolon_color.bmp");
 	eidolonTex.bindTexture();
 
-	loadModel("models\\frosttree.obj", &frosttree);
+	loadModel("models\\frosttree.obj_m", &frosttree);
 	frosttreeTex.loadTextureFromFile("textures//tree_pine_frond_snow_00b_frostivus_color_psd_ce5309b9.bmp");
 	frosttreeTex.bindTexture();
 
-	loadModel("models\\rock.obj", &rock);
+	loadModel("models\\rock.obj_m", &rock);
 	rockTex.loadTextureFromFile("textures//riveredge_rock008a_color_psd_ef9087d7.bmp");
 	rockTex.bindTexture();
 
-	loadModel("models\\grass.obj", &grass);
+	loadModel("models\\grass.obj_m", &grass);
 	grassTex.loadTextureFromFile("textures//plants_journey_001_color_psd_23526154.bmp");
 	grassTex.bindTexture();
 
@@ -695,7 +695,7 @@ void Render(OpenGL *ogl)
 
 	if (1) {
 		double S1[] = { 4,3.3, 2 };
-		double S2[] = { 5,3.5, 2.8 };
+		double S2[] = { 3.7,3.5, 2.8 };
 		double S3[] = { 1.5,5.7, 1.3 };
 		double S4[] = { 4,3.3, 2 };
 		double S[3];
@@ -1151,23 +1151,8 @@ void Render(OpenGL *ogl)
 	location = glGetUniformLocationARB(s[0].program, "camera");
 	glUniform3fARB(location, camera.pos.X(), camera.pos.Y(), camera.pos.Z());
 
-	//первый пистолет
-	//objModel.DrawObj();
-
 
 	Shader::DontUseShaders();
-	
-	//второй, без шейдеров
-	//glPushMatrix();
-	//	glTranslated(-5,5,0);
-	//	glRotated(90, 1, 0, 0);
-	//	glScaled(1, 1, 1);
-	//	objModel.DrawObj();
-	//glPopMatrix();
-
-
-
-	//обезь€на
 
 	s[1].UseShader();
 	int l = glGetUniformLocationARB(s[1].program,"tex"); 
